@@ -14,37 +14,48 @@ import {
   View,
   Text,
   StatusBar,
+  Alert,
   Image,
   TouchableOpacity
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-//
+
 const App: () => React$Node = () => {
+
+  simpleAlertHandler = () => {
+    //function to make three option alert
+    Alert.alert(
+      //title
+      'Hello',
+      //body
+      'I am three option alert. Do you want to cancel me ?',
+      [
+        { text: 'May be', onPress: () => console.log('May be Pressed') },
+        { text: 'Yes', onPress: () => console.log('Yes Pressed') },
+        { text: 'OK', onPress: () => console.log('OK Pressed'), style: 'cancel' },
+      ],
+      { cancelable: true }
+    );
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
-     
+
       <View style = { styles.navigationView }>
               <Text style = { styles.titleText } > Title name here </Text>
           </View>
           <View style={styles.MainContainer}>
 
-   <TouchableOpacity style={styles.FacebookStyle} activeOpacity={0.5}>
+   <TouchableOpacity  onPress={this.simpleAlertHandler} style={styles.FacebookStyle} activeOpacity={0.5}>
 
    <Image
-            source={require('./Images/Facebook_Login_Button.png')}
+            source={require('./Images/telegram.png')}
             style={styles.ImageIconStyle}
             />
       <View style={styles.SeparatorLine} />
 
-      <Text style={styles.TextStyle}> Login Using Facebook </Text>
+      <Text style={styles.TextStyle}>    تلگرام    </Text>
 
     </TouchableOpacity>
 
@@ -52,13 +63,13 @@ const App: () => React$Node = () => {
     <TouchableOpacity style={styles.GooglePlusStyle} activeOpacity={0.5}>
 
     <Image
-             source={require('./Images/Google_Plus.png')}
+             source={require('./Images/cloud.png')}
              style={styles.ImageIconStyle}
              />
 
       <View style={styles.SeparatorLine} />
 
-      <Text style={styles.TextStyle}> Login Using Google Plus </Text>
+      <Text style={styles.TextStyle}>   تاریخچه </Text>
 
     </TouchableOpacity>
 
@@ -96,7 +107,7 @@ GooglePlusStyle: {
   backgroundColor: '#dc4e41',
   borderWidth: .5,
   borderColor: '#fff',
-  height: 40,
+  height: 50,
   borderRadius: 5 ,
   margin: 5,
 
@@ -105,30 +116,30 @@ GooglePlusStyle: {
 FacebookStyle: {
  flexDirection: 'row',
  alignItems: 'center',
- backgroundColor: '#485a96',
+ backgroundColor: '#0088cc',
  borderWidth: .5,
  borderColor: '#fff',
- height: 40,
+ height: 50,
  borderRadius: 5 ,
  margin: 5,
 
 },
 
 ImageIconStyle: {
-  padding: 10,
+  padding: 18,
   margin: 5,
-  height: 25,
-  width: 25,
+  height: 35,
+  width: 35,
   resizeMode : 'stretch',
 
 },
 
 TextStyle :{
-
+ fontSize:16,
  color: "#fff",
  marginBottom : 4,
  marginRight :20,
-
+padding :40,
 },
 
 SeparatorLine :{
